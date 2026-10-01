@@ -20,15 +20,14 @@ app.get("/home",function(req,res){
 	res.send(html)
 })
 app.get("/rate",function(req,res){
-	var file = req.query.file
-	var comments = fso.readFileSync(path.join(__dirname,"files","comments",file + ".txt"),"utf8")
+	var comments = fso.readFileSync(path.join(__dirname,"files","comments",req.query.file + ".txt"),"utf8")
 	var comhtml = fso.readFileSync(path.join(__dirname,"files","comments.htm"),"utf8")
 	comhtml = comhtml.replace("{{comments}}",comments)
-	comhtml = comhtml.replace("{{filename}}",file)
+	comhtml = comhtml.replace("{{filename}}",req.query.file)
 	res.send(comhtml)
 })
 app.get("/comsend",function(req,res){
-	var nowmade = fso.readFileSync(path.join(__dirname,"files","comments",req.query.file + ".txt"),"utf8")
+	var nowmade = fso.readFileSync(path.join(__dirname,"files","comments", req.query.file + ".txt"),"utf8")
 	fso.writeFileSync(path.join(__dirname,"files","comments",req.query.file + ".txt"),"[" + req.query.name + "]" + " " + req.query.com + "\n" + nowmade)
 res.send("送信が完了しました。<a href='/home'>戻る</a>")
 })
