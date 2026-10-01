@@ -75,13 +75,16 @@ var upload = multer({
 	}
 	
 })
+app.get("/serverstopfuckintoshaiueo",function(req,res){
+server.close()
+})
 app.post("/send",upload.single("file"),function(req,res){
 	res.send("ｱｯﾌﾟﾛｰﾄﾞが完了しました。<a href='/home' target='_top'>ﾎｰﾑに戻る</a>")
 })
 app.use((req, res, next) => {
   res.status(404).sendFile(path.join(__dirname,"files","404.htm"));
 });
-app.listen(3000,"0.0.0.0",function(){
+var server = app.listen(3000,"0.0.0.0",function(){
 	console.log("started server")
 }
 )
