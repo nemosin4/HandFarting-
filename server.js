@@ -10,9 +10,12 @@ app.use(express.static(path.join(__dirname, 'files')));
 app.get("/home",function(req,res){
 	var files = fso.readdirSync(path.join(__dirname,"files","audios"))
 	var fileshtml = ""
+
 	fileshtml = fileshtml + "<center>\n"
 	for (var index = 0;index < files.length;index = index + 1) {
-	fileshtml = fileshtml + `<a href="audios/${files[index]}">${files[index]}</a><form action="rate" method="GET"><input name="file" type="hidden" value="${files[index]}"><input type="submit" value="ｺﾒﾝﾄをつける"></form><br>`
+		var artist 
+		artist = fso.readFileSync(path.join(__dirname,"files","comments",files[index] + "artist.txt"),"utf8")
+	fileshtml = fileshtml + `<div class="framesimple"><p class="text">${files[index].replace(/^.*?\;/, "")}<br>アーティスト : ${artist}</p><input type="button" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;再生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" class="linkbutton" onclick="location.href='audios/${files[index]}'" ><br><br><input type="button" value="コメントをつける" class="linkbutton" onclick="location.href = '/rate?file=${files[index]}'"></div><br>`
 	}
 	fileshtml = fileshtml + "</center>"
 	var html = fso.readFileSync(path.join(__dirname,"files","home.htm"),"utf8")
@@ -37,9 +40,10 @@ var storage = multer.diskStorage({
 	},
 	filename : function(req,file,cb) {
 	var ext = path.extname(file.originalname);
-	var filename = 9999999999999999 - Date.now() + "_" + req.body.name + ext
+	var filename = 9999999999999999 - Date.now() + ";" + req.body.name + ext
 	cb(null,filename)
 	fso.writeFileSync(path.join(__dirname,"files","comments",filename + ".txt"),"")
+	fso.writeFileSync(path.join(__dirname,"files","comments",filename + "artist" + ".txt"),req.body.artist)
 	}
 })
 var upload = multer({
