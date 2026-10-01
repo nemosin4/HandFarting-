@@ -1,0 +1,12 @@
+body {background: RGB(0,0,0); font-family: 'MS Gothic','Yu Gothic',sans-serif}
+#title {border-radius:10px; width: 700px; margin-right: auto; margin: auto; background: linear-gradient(RGBA(20,20,20,1),RGBA(255,255,255,0.3)); box-shadow: 6px 6px 10px rgb(255, 0, 0);text-align: center;}
+.linkbutton {color: white; background: RGB(80,80,255); border: none; width: 100px;}
+.linkbutton:active {color: RGB(100,100,100); background: RGB(20,20,195); border: none;}
+#content {border-radius: 10px;width: 700px; margin-right: auto; margin-left: auto; margin-top:20px; background: linear-gradient(RGBA(20,20,20,1),RGBA(255,255,255,0.3)); text-align: center;}
+.midashi {color:red; font-style: italic; font-weight: bold;}
+.frame {box-shadow: 2px 2px 10px red; background: RGBA(0,0,0,0.5); color: white; border-radius: 10px; padding:10px; margin-right: 40px; margin-left: 40px;}
+a {color: red;}
+.textbox {color: RGB(255,255,255); background: RGBA(0,0,0,0.6); border: solid 1px RGB(80,80,255);}
+.textbox:focus {color: RGB(255,255,255); background: RGBA(0,0,0,0.6); border: solid 2px RGB(80,80,255);}
+.textbox:hover {color: RGB(255,255,255); background: RGBA(0,0,0,0.6); border: solid 2px RGB(80,80,255);}
+.text{color:RGB(255,255,255)}

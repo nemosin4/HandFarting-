@@ -1,46 +1,33 @@
-<html lang="ja-JP">
-<head>
-<meta charset="UTF-8">
-<title>HandFarting! ｺﾒﾝﾄ</title>
-</head>
-<body onresize="" bgcolor="#111111">
-<center>
-<table width="700" bgcolor="#333333" border="1" bordercolor="red"><tr><td>
-<center>
-<img src="imgs/logo.bmp"><br>
-<a href="/home" target="content"><font size="4" color="#FF0000">ホーム</font></a>
-<a href="upload.htm" target="content"><font color="#FFFF00">屁を投稿する</font></a>
-<a href="/chat" target="content"><font color="#00FF00">チャット</font></a>
-<a href="help.htm" target="content"><font color="#00FFFF">ヘルプ</font></a>
 
-</center>
-</td></tr>
-<tr><td>
-<center>
 
-<br>
-<font color="red">ｺﾒﾝﾄの投稿</font>
-<table width="600" border="1" bordercolor="gold"><tr><td>
+<html lang="JA-hp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>HandFarting! home</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="title">
+            <img src="imgs/logotoumei.png"><br>
+            <input class="linkbutton" type="button" onclick="location.href = '/home' " value="ホーム">
+            <input class="linkbutton" type="button" onclick="location.href = 'upload.htm' " value="屁の投稿">
+            <input class="linkbutton" type="button" onclick="location.href = 'help.htm' " value="ヘルプ">
+        </div>
+        <div id="content">
+            <p class="midashi">コメントの投稿</p>
 <form method="GET" action="/comsend">
-<font face="MS Gothic" color="red" size="2">※著作物などを絶対にｱｯﾌﾟﾛｰﾄﾞしないでください。</font><br>
-<font color="#ffcc99" face="MS Gothic" size="2">ｺﾒﾝﾄに悪口や誹謗中傷を書かないでください。書いた場合書いた人のIPｱﾄﾞﾚｽを公開します。</font><br>
-<font color="white" face="MS Gothic">名前</font><br>
-<input type="text" name="name"><br><br>
-<font color="white" face="MS Gothic">ｺﾒﾝﾄ</font><br>
-<input type="text" name="com">
-<input type="hidden" name="file" value="{{filename}}">
-<input type="submit" value="ｱｯﾌﾟﾛｰﾄﾞ"><br>
+<p class="text">※著作物などを絶対にｱｯﾌﾟﾛｰﾄﾞしないでください。</p>
+<p class="text">コメントに悪口や誹謗中傷を書かないでください。</p>
+<input class="textbox" placeholder="名前" type="text" name="name">
+<br><br>
+<input class="textbox" placeholder="コメント" type="text" name="com"><br>
+<input type="hidden" name="file" value="{{filename}}"><br>
+<input class="linkbutton"type="submit" value="ｱｯﾌﾟﾛｰﾄﾞ"><br>
 </form>
 </td></tr>
 <tr><td>
-<font color="gold" face="MS Gothic" size="4">みんなのｺﾒﾝﾄ</font><br>
-<textarea cols="80" rows="40" readonly>{{comments}}</textarea>
-</td></tr></table>
-
-
-</td></tr></table>
-</center>
-
-</center>
-</body>
+<p class="midashi">みんなのコメント</p>
+<textarea class="textbox" cols="80" rows="40" readonly>{{comments}}</textarea>
+        </div>
+    </body>
 </html>
