@@ -6,7 +6,7 @@ var multer = require("multer")
 const serveIndex = require('serve-index');
 const uploadDir = path.join(__dirname, 'files/audios');
 app.use('/audios', express.static(uploadDir), serveIndex(uploadDir, { icons: false ,'template': path.join(__dirname,'/fileview.htm')}));
-app.use(express.static(path.join(__dirname, 'files')));)
+app.use(express.static(path.join(__dirname, 'files')));
 app.get("/",function(req,res)){
 	res.send('<script language="JavaScript">location.href="/home"</script>')
 }
